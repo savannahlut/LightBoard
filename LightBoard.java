@@ -8,6 +8,10 @@ private boolean[][] lights;
 * Postcondition: each light has a 40% probability of being set to on. */
 public LightBoard(int numRows, int numCols){ 
     lights = new boolean[numRows][numCols];
+    for(int i=0; i<numRows ; i++){
+        for(int j=0; j<numCols ; j++){
+            if(0.40 >= Math.random()) lights[i][j] = true;
+        }
     }
 }
 
@@ -19,4 +23,14 @@ public boolean evaluateLight(int row, int col)
 { /* to be implemented in part (b) */ }
 
 // There may be additional instance variables, constructors, and methods not shown.
+public String toString(){
+    String result = "[ " ;
+    for(boolean[] r : lights){
+        for(boolean c : r){
+            result += c + ", " ;
+        }
+        result += "\n" ;
+    }
+    return result + " ]";
+}
 }

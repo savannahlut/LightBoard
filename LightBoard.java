@@ -19,8 +19,20 @@ public LightBoard(int numRows, int numCols){
 * as described in part (b).
 * Precondition: row and col are valid indexes in lights.
 */
-public boolean evaluateLight(int row, int col)
-{ /* to be implemented in part (b) */ }
+public boolean evaluateLight(int row, int col){
+    boolean currentLight = lights[row][col];
+    int on = 0;
+    for(int i=0; i<lights.length ; i++){
+        if (currentLight) on++;
+    }
+    if(currentLight){
+        if(on % 2 == 0) return false;
+    }
+    if(!currentLight){
+        if(on % 3 == 0) return true;
+    }
+    return currentLight;
+}
 
 // There may be additional instance variables, constructors, and methods not shown.
 public String toString(){
